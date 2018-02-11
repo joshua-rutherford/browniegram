@@ -1,17 +1,18 @@
 import cv2
+import time
 
-def scan(inteval, capture, detect, callback):
+def scan(interval, capture, detect, callback):
     while True:
         image = capture()
         detections = detect(image)
-        if detections
+        if len(detections) == 0:
+            time.sleep(interval)
+        else:
             def cropper(vertices):
                 left, top, width, height = vertices
                 return crop(image, left, top, width, height)
             images = map(cropper, detections)
             callback(images)
-        else:
-            sleep(interval)
 
 def crop(image, left, top, width, height, preserve):
     right = left + width
