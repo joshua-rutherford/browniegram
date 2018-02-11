@@ -1,0 +1,9 @@
+{
+    "detector": {
+        "classifier": "frontal.xml",
+        "minimumNeighbors": 4,
+        "minimumHeight": 30,
+        "minimumWidth": 30,
+        "scaleFactor": 1.3
+    }
+}
