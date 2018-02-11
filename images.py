@@ -7,6 +7,7 @@ def scan(interval, capture, detect, callback):
         detections = detect(image)
         if len(detections) == 1:
             left, top, width, height = detections[0]
+            print("{0}, {1}, {2}, {3}".format(left, top, width, height))
             callback(crop(image[0], left, top, width, height))
         else:
             time.sleep(interval)
