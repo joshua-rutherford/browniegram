@@ -14,3 +14,4 @@ def opencv(model, directory):
                 images.append(image)
                 labels.append(label)
         model.train(images, labels)
+    return train
