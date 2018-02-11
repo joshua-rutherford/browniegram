@@ -1,6 +1,7 @@
 import cv2
 import images
 import os
+import numpy as np
 
 def opencv(model, directory):
     def train():
