@@ -14,11 +14,7 @@ def opencv(model, directory):
             print("Index: {0}, Label: {1}".format(i, label))
             files = os.listdir(os.path.join(directory, label))
             for file in files:
-                a = os.path.join(directory, label, file)
-                print(a)
-                b = cv2.imread(a, cv2.IMREAD_GRAYSCALE)
-                print(b)
-                face = images.resize(b, 92, 112, cv2.INTER_LANCZOS4)
+                face = images.resize(cv2.imread(os.path.join(directory, label, file), cv2.IMREAD_GRAYSCALE), 92, 112, cv2.INTER_LANCZOS4)
                 faces.append(face)
                 labels.append(i)
         model.train(numpy.asarray(faces), numpy.asarray(labels))
