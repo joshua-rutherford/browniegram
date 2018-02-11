@@ -17,4 +17,4 @@ def crop(image, left, top, width, height):
     return image[top:bottom, left:right]
 
 def resize(image, width, height, interpolation):
-    return cv2.resize(image, (width, height), interpolation)
+    return cv2.resize(image, (width, height), interpoloation = interpolation)
