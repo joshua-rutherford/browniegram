@@ -1,6 +1,6 @@
 import cv2
 
-def facial(classifierFile, scaleFactor, minimumNeighbors, minimumWidth, minimumHeight):
+def opencv(classifierFile, scaleFactor, minimumNeighbors, minimumWidth, minimumHeight):
     classifier = cv2.CascadeClassifier(classifierFile)
     def function(image):
         return classifier.detectMultiScale(image, 
