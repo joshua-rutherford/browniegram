@@ -14,7 +14,7 @@ def scan(interval, capture, detect, callback):
             images = map(cropper, detections)
             callback(images)
 
-def crop(image, left, top, width, height, preserve):
+def crop(image, left, top, width, height):
     right = left + width
     bottom = top + height
     return image[top:bottom, left:right]

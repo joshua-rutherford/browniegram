@@ -4,7 +4,7 @@ import images
 
 def callback(images):
     for i in range(len(images)):
-        print(len[images[i])
+        print(len(images[i]))
 
 if __name__ == '__main__':   
     capture = capturers.camera()
