@@ -1,7 +1,7 @@
 import cv2
 import images
 import os
-import numpy as np
+import numpy
 
 def opencv(model, directory):
     def train():
@@ -18,5 +18,5 @@ def opencv(model, directory):
                 face = images.resize(b, 92, 112, cv2.INTER_LANCZOS4)
                 faces.append(face)
                 labels.append(label)
-        model.train(images, labels)
+        model.train(numpy.asarray(faces), numpy.asarray(labels))
     return train
