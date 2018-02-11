@@ -12,7 +12,7 @@ def cli():
 def create(config):
     image = camera.capture()
     with open(config) as file:
-        detector = Detector(json.load(file)["detector"])
+        detector = detector.Detector(json.load(file)["detector"])
     results = detector.detect(image)
     click.echo(results)
 
