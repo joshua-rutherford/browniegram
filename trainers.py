@@ -10,7 +10,9 @@ def opencv(model, directory):
         for label in directories:
             files = os.listdir(os.path.join(directory, label))
             for file in files:
-                a = cv2.imread(os.path.join(directory, label, file), cv2.IMREAD_GRAYSCALE)
+                a = os.path.join(directory, label, file)
+                print(a)
+                b = cv2.imread(a, cv2.IMREAD_GRAYSCALE)
                 face = images.resize(a, 92, 112, cv2.INTER_LANCZOS4)
                 faces.append(face)
                 labels.append(label)
