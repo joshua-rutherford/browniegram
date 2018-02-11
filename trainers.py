@@ -14,7 +14,7 @@ def opencv(model, directory):
                 print(a)
                 b = cv2.imread(a, cv2.IMREAD_GRAYSCALE)
                 print(b)
-                face = images.resize(a, 92, 112, cv2.INTER_LANCZOS4)
+                face = images.resize(b, 92, 112, cv2.INTER_LANCZOS4)
                 faces.append(face)
                 labels.append(label)
         model.train(images, labels)
