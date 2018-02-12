@@ -12,7 +12,7 @@ def scan(interval, ratio, capture, detect, callback):
             if r > ratio:
                 height = w * ratio
             else:
-                width = h / ratio
+                width = h / ratio    
             callback(resize(crop(image[0], left, top, width, height), 92, 112, cv2.INTER_LANCZOS4)
         else:
             time.sleep(interval)
