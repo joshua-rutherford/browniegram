@@ -8,7 +8,6 @@ def scan(interval, ratio, capture, detect, callback):
         if len(detections) == 1:
             x, y, w, h = detections[0]
             r = h / w
-            print("{0}, {1}, {2}, {3}".format(x, y, w, h))
             if r > ratio:
                 h = (w * ratio)
             else:
