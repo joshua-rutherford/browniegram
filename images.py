@@ -9,11 +9,11 @@ def scan(interval, ratio, capture, detect, callback):
             x, y, w, h = detections[0]
             r = h / w
             print("{0}, {1}, {2}, {3}".format(x, y, w, h))
-            #if r > ratio:
-            #    h = (w * ratio)
-            #else:
-            #    w = (h / ratio)    
-            callback(resize(crop(image[0], x, y, w, h), 92, 112, cv2.INTER_LANCZOS4)
+            if r > ratio:
+                h = (w * ratio)
+            else:
+                w = (h / ratio)    
+            callback(resize(crop(image[0], x, y, w, h), 92, 112, interpolation = cv2.INTER_LANCZOS4)
         else:
             time.sleep(interval)
 
