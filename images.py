@@ -3,7 +3,7 @@ import time
 
 def scan(interval, ratio, capture, detect, callback):
     while True:
-        image = cv2.cvtColor(capture, cv2.COLOR_RGB2GRAY)
+        image = cv2.cvtColor(capture(), cv2.COLOR_RGB2GRAY)
         detections = detect(image)
         if len(detections) == 1:
             x, y, w, h = detections[0]
@@ -12,7 +12,7 @@ def scan(interval, ratio, capture, detect, callback):
             if r > ratio:
                 h = (w * ratio)
             else:
-                w = (h / ratio)    
+                w = (h / ratio)
             callback(resize(crop(image[0], x, y, w, h), 92, 112, interpolation = cv2.INTER_LANCZOS4))
         else:
             time.sleep(interval)
