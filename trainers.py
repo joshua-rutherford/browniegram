@@ -7,10 +7,12 @@ def opencv(model, directory):
     def train():
         faces = []
         labels = []
+        names = {}
         i = 0
         directories = os.listdir(directory)
         for label in directories:
             i = i + 1
+            names[i] = directory
             print("Index: {0}, Label: {1}".format(i, label))
             files = os.listdir(os.path.join(directory, label))
             for file in files:
@@ -18,4 +20,5 @@ def opencv(model, directory):
                 faces.append(face)
                 labels.append(i)
         model.train(numpy.asarray(faces), numpy.asarray(labels))
+        return names
     return train

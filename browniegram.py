@@ -8,14 +8,7 @@ import recognizers
 import trainers
 
 model = cv2.createEigenFaceRecognizer()
-recognize = recognizers.opencv(model, 1000)
-
-def callback(image):
-    name = recognize(image)
-    if name:
-        print(name)
-    else:
-        print('unknown')
+recognize = recognizers.opencv(model, 4000)
 
 @click.group()
 def cli():
@@ -38,10 +31,16 @@ def remove(name):
 def run():
     train = trainers.opencv(model, './.browniegram/db')
     print('training...')
-    train()
+    names = train()
     print('trained...')
     capture = capturers.camera()
     detect = detectors.opencv('./.browniegram/frontal.xml', 1.3, 4, 30, 30)
+    def callback(image):
+        name = recognize(image)
+        if name:
+            print(names[name])
+        else:
+            print('unknown')
     images.scan(5, 112 / 92, capture, detect, callback)
 
 cli.add_command(add)
