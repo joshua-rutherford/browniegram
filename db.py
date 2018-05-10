@@ -7,11 +7,15 @@ DATABASE_PATH = os.path.join('.browniegram', 'db')
 
 def add(name, image):
     path = os.path.join(DATABASE_PATH, name)
+    if not os.path.exists(path):
+        os.makedirs(path)
     file = os.path.join(path, '{0}.pgm'.format(uuid.uuid4()))
     cv2.imwrite(file, image)
 
 def adder(name):
     path = os.path.join(DATABASE_PATH, name)
+    if not os.path.exists(path):
+        os.makedirs(path)
     def function(image):
         file = os.path.join(path, '{0}.pgm'.format(uuid.uuid4()))
         cv2.imwrite(file, image)
