@@ -19,6 +19,7 @@ def adder(name):
     def function(image):
         file = os.path.join(path, '{0}.pgm'.format(uuid.uuid4()))
         cv2.imwrite(file, image)
+        print('Added image {0} for {name}'.format(file, name))
     return function
 
 def remove(name):
