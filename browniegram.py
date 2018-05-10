@@ -4,6 +4,7 @@ import cv2
 import db
 import detectors
 import images
+import recognizers
 import trainers
 
 model = cv2.createEigenFaceRecognizer()
