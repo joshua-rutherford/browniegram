@@ -12,7 +12,7 @@ def opencv(model, directory):
         directories = os.listdir(directory)
         for label in directories:
             i = i + 1
-            names[i] = directory
+            names[i] = label
             print("Index: {0}, Label: {1}".format(i, label))
             files = os.listdir(os.path.join(directory, label))
             for file in files:

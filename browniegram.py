@@ -7,6 +7,8 @@ import images
 import recognizers
 import trainers
 
+from espeak import espeak
+
 model = cv2.createEigenFaceRecognizer()
 recognize = recognizers.opencv(model, 4000)
 
@@ -39,8 +41,12 @@ def run():
         name = recognize(image)
         if name:
             print(names[name])
+            espeak.synth("Delay. Hello %s. I was wondering where you have been."%names[name])
         else:
             print('unknown')
+            espeak.synth("Delay. Hmm, have we met before.  I can't seem to recall your face.")
+        while espeak.is_playing():
+	        time.sleep(0.1)
     images.scan(5, 112 / 92, capture, detect, callback)
 
 cli.add_command(add)
